@@ -13,16 +13,11 @@ if(!function_exists('theme_woocommerce_enabled')) {
         global $woocommerce;
         return $woocommerce != null;
     }
-    array(
-        'name' => __('Templates', 'default'),
-        'type' => 'heading'
-    )
-);
+}
 
-function theme_compare_template_names($a, $b) {
-    global $theme_template_type_priority;
-    if ($theme_template_type_priority[$a] === $theme_template_type_priority[$b])
-        return strnatcasecmp($a, $b);
+function theme_add_template_option($type, $name, $caption, $type_priority = 10) {
+    global $theme_templates_options, $theme_template_type_priority;
+    $theme_template_type_priority[$type] = $type_priority;
     return $theme_template_type_priority[$b] - $theme_template_type_priority[$a];
 }
 uksort($theme_templates_options, 'theme_compare_template_names');
