@@ -3,26 +3,16 @@ defined('ABSPATH') or die;
 
 global $theme_options, $theme_templates_options, $theme_template_query, $theme_template_type_priority, $theme_default_options;
 
+$theme_templates_options = array();
+$theme_selectable_templates = array();
+$theme_template_type_priority = array();
+$theme_template_query = array();
+
+if(!function_exists('theme_woocommerce_enabled')) {
     function theme_woocommerce_enabled() {
         global $woocommerce;
         return $woocommerce != null;
     }
-}
-
-function theme_add_template_option($type, $name, $caption, $type_priority = 10) {
-    global $theme_templates_options, $theme_template_type_priority;
-    $theme_template_type_priority[$type] = $type_priority;
-    $theme_templates_options[$type][$name] = esc_attr(urldecode($caption));
-}
-
-function theme_add_template_query_option($type, $name, $caption) {
-    global $theme_template_query;
-    $theme_template_query[$name] = esc_attr(urldecode($caption));
-}
-
-theme_include_lib('templates_options.php');
-
-$theme_options = array(
     array(
         'name' => __('Templates', 'default'),
         'type' => 'heading'
