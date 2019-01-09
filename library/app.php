@@ -13,22 +13,6 @@ function theme_app_settings($settings) {
         "name": "summer-time",
         "isDefault": true,
         "bodyColors": [
-            "#111111",
-            "#ffffff"
-        ],
-        "colors": [
-            "#478ac9",
-            "#db545a",
-            "#f1c50e",
-            "#2cccc4",
-            "#b9c1cc"
-        ],
-        "bgColor": "#ffffff",
-        "shadingContrast": "body-alt-color",
-        "whiteContrast": "body-color",
-        "bgContrast": "body-color"
-    },
-    "fontScheme": {
         "name": "Roboto-OpenSans",
         "default": true,
         "isDefault": true,
