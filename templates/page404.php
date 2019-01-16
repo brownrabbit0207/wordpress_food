@@ -1,3 +1,4 @@
+<?php
 /*
 Template Name: The template for displaying 404 pages (not found)
 */
@@ -12,22 +13,6 @@ add_action(
     }
 );
 
-function theme_single_body_class_filter($classes) {
-    $classes[] = 'u-body u-xl-mode';
-    return $classes;
-}
-add_filter('body_class', 'theme_single_body_class_filter');
-
-function theme_single_body_style_attribute() {
-    return "";
-}
-add_filter('add_body_style_attribute', 'theme_single_body_style_attribute');
-
-function theme_single_body_back_to_top() {
-    ob_start(); ?>
-    
-    <?php
-    return ob_get_clean();
 }
 add_filter('add_back_to_top', 'theme_single_body_back_to_top');
 
