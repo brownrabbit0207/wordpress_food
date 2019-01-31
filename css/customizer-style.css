@@ -8,6 +8,17 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--heading-font);
+}
+
+
+.u-overlap.u-overlap-transparent .u-header,
+.u-image,
+.u-gradient {
+  color: var(--white-contrast);
+}
+.u-shading,
+.u-overlap.u-overlap-contrast .u-header {
   color: var(--shading-contrast);
 }
 .u-body {
