@@ -8,21 +8,36 @@ class CFormFields {
      * Parse fields from publishHtml
      *
      * @param string $form_html
-     */
-    public function parseFromHtml($form_html) {
-        preg_match_all('#<(input|textarea|select)([^>]*)>#', $form_html, $matches);
-
-        $radioButtons = array();
-        $checkboxIds = array();
-        $checkboxElements = array();
-        for ($i = 0; $i < count($matches[0]); $i++) {
-            $attrs = $matches[2][$i];
-            if (!preg_match('#name="([^"]*)#', $attrs, $m) || strpos($attrs, 'type="hidden"') !== false) {
-                continue;
             }
             $name = $m[1];
 
             if ($name === 'name') { // see detect_unavailable_names
+                $name = 'name1';
+            }
+
+            if ($matches[1][$i] === 'select') {
+                $selectRegExp = '#<select [\s\S]+? name=["|\']' . $name . '["|\']([^>]*)>([\s\S]+?)<\/select>#';
+                preg_match_all($selectRegExp, $form_html, $matchesSelect);
+                $optionHtml = preg_replace('/data-calc=["\'][\s\S]*?["\'] ?/', '', $matchesSelect[2][0]);
+                $optionHtml = preg_replace('/ +?selected="[\s\S]+?"/', '', $optionHtml);
+                preg_match_all('#<option value=[\'|"]([\s\S]+?)[\'|"] *?>#', $optionHtml, $matchesOption);
+            }
+
+            $required = strpos($attrs, 'required') !== false;
+            $multiple = strpos($attrs, 'multiple') !== false;
+
+            $field = array(
+                'required' => $required,
+                'name' => $name,
+            );
+            if ($matches[1][$i] === 'select') {
+                $field['option'] = $matchesOption[1];
+                $field['multiple'] = $multiple;
+                $field['type'] = 'select';
+            }
+            if (strpos($attrs, 'type="radio"') !== false) {
+                preg_match('#value=["|\']([\s\S]+?)["|\']#', $attrs, $matchesValue);
+                $field['value'] = $matchesValue[1];
                 if (!array_key_exists($name, $radioButtons)) {
                     $this->fields[] = array();
                     $radioButtons[$name] = array(
