@@ -13,16 +13,11 @@
   min-height: 441px;
   grid-gap: 22px;
 }
-.u-section-1 .u-text-2 {
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-.u-section-1 .u-btn-1 {
+.u-section-1 .u-repeater-item-1 {
   background-image: none;
-  border-style: solid;
-  margin: 17px auto 0 0;
-  padding: 0;
 }
+.u-section-1 .u-container-layout-1 {
+  padding: 30px 20px;
 .u-section-1 .u-container-layout-2 {
   padding: 30px 20px;
 }
