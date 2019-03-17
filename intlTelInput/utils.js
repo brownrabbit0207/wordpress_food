@@ -1,4 +1,3 @@
-(function(){/*
 
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0
@@ -13,6 +12,22 @@
  Copyright (C) 2010 The Libphonenumber Authors
 
  Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+    function F(){n.call(this)}m(F,n);var pa=null;function G(){n.call(this)}m(G,n);var qa=null;function H(){n.call(this)}m(H,n);var ra=null;
+    F.prototype.j=function(){var a=pa;a||(pa=a=y(F,{0:{name:"NumberFormat",s:"i18n.phonenumbers.NumberFormat"},1:{name:"pattern",required:!0,h:9,type:String},2:{name:"format",required:!0,h:9,type:String},3:{name:"leading_digits_pattern",o:!0,h:9,type:String},4:{name:"national_prefix_formatting_rule",h:9,type:String},6:{name:"national_prefix_optional_when_formatting",h:8,defaultValue:!1,type:Boolean},5:{name:"domestic_carrier_code_formatting_rule",h:9,type:String}}));return a};F.j=F.prototype.j;
+    G.prototype.j=function(){var a=qa;a||(qa=a=y(G,{0:{name:"PhoneNumberDesc",s:"i18n.phonenumbers.PhoneNumberDesc"},2:{name:"national_number_pattern",h:9,type:String},9:{name:"possible_length",o:!0,h:5,type:Number},10:{name:"possible_length_local_only",o:!0,h:5,type:Number},6:{name:"example_number",h:9,type:String}}));return a};G.j=G.prototype.j;
+    H.prototype.j=function(){var a=ra;a||(ra=a=y(H,{0:{name:"PhoneMetadata",s:"i18n.phonenumbers.PhoneMetadata"},1:{name:"general_desc",h:11,type:G},2:{name:"fixed_line",h:11,type:G},3:{name:"mobile",h:11,type:G},4:{name:"toll_free",h:11,type:G},5:{name:"premium_rate",h:11,type:G},6:{name:"shared_cost",h:11,type:G},7:{name:"personal_number",h:11,type:G},8:{name:"voip",h:11,type:G},21:{name:"pager",h:11,type:G},25:{name:"uan",h:11,type:G},27:{name:"emergency",h:11,type:G},28:{name:"voicemail",h:11,type:G},
+        29:{name:"short_code",h:11,type:G},30:{name:"standard_rate",h:11,type:G},31:{name:"carrier_specific",h:11,type:G},33:{name:"sms_services",h:11,type:G},24:{name:"no_international_dialling",h:11,type:G},9:{name:"id",required:!0,h:9,type:String},10:{name:"country_code",h:5,type:Number},11:{name:"international_prefix",h:9,type:String},17:{name:"preferred_international_prefix",h:9,type:String},12:{name:"national_prefix",h:9,type:String},13:{name:"preferred_extn_prefix",h:9,type:String},15:{name:"national_prefix_for_parsing",
             h:9,type:String},16:{name:"national_prefix_transform_rule",h:9,type:String},18:{name:"same_mobile_and_fixed_line_pattern",h:8,defaultValue:!1,type:Boolean},19:{name:"number_format",o:!0,h:11,type:F},20:{name:"intl_number_format",o:!0,h:11,type:F},22:{name:"main_country_for_code",h:8,defaultValue:!1,type:Boolean},23:{name:"leading_digits",h:9,type:String},26:{name:"leading_zero_possible",h:8,defaultValue:!1,type:Boolean}}));return a};H.j=H.prototype.j;function I(){n.call(this)}m(I,n);var sa=null,ta={ea:0,da:1,ca:5,ba:10,aa:20};
     I.prototype.j=function(){var a=sa;a||(sa=a=y(I,{0:{name:"PhoneNumber",s:"i18n.phonenumbers.PhoneNumber"},1:{name:"country_code",required:!0,h:5,type:Number},2:{name:"national_number",required:!0,h:4,type:Number},3:{name:"extension",h:9,type:String},4:{name:"italian_leading_zero",h:8,type:Boolean},8:{name:"number_of_leading_zeros",h:5,defaultValue:1,type:Number},5:{name:"raw_input",h:9,type:String},6:{name:"country_code_source",h:14,defaultValue:0,type:ta},7:{name:"preferred_domestic_carrier_code",
             h:9,type:String}}));return a};I.ctor=I;I.ctor.j=I.prototype.j;/*
