@@ -1,4 +1,3 @@
-<header class="u-clearfix u-header u-header" id="sec-f193">
   <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
     <?php $logo = theme_get_logo(array(
             'default_src' => "/images/default-logo.png",
@@ -23,6 +22,32 @@
         <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
           <div class="u-inner-container-layout u-sidenav-overflow">
             <div class="u-menu-close"></div>
+            {responsive_menu}
+          </div>
+        </div>
+        <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+      </div>
+    </nav><?php
+            $menu_template = ob_get_clean();
+            $menuPath = '/template-parts/menu/primary-navigation-1/';
+            $processorPath = get_theme_file_path('/template-parts/menu/popups-render.php');
+            if (file_exists($processorPath)) {
+                include $processorPath;
+            }
+            echo Theme_NavMenu::getMenuHtml(array(
+                'container_class' => 'u-menu u-menu-dropdown u-offcanvas u-menu-1',
+                'menu' => array(
+                    'is_mega_menu' => false,
+                    'menu_class' => 'u-nav u-unstyled u-nav-1',
+                    'item_class' => 'u-nav-item',
+                    'link_class' => 'u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base',
+                    'link_style' => 'padding: 10px 20px;',
+                    'submenu_class' => 'u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-block-b28e-19',
+                    'submenu_item_class' => 'u-nav-item',
+                    'submenu_link_class' => 'u-button-style u-nav-link u-white',
+                    'submenu_link_style' => '',
+                ),
+                'responsive_menu' => array(
                     'is_mega_menu' => false,
                     'menu_class' => 'u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2',
                     'item_class' => 'u-nav-item',
