@@ -18,6 +18,27 @@
             bgColor: api('color_background')(),
             bodyColors: [api('color_white_contrast')(), api('color_shading_contrast')()],
             colors: [api('color_1')(), api('color_2')(), api('color_3')(), api('color_4')(), api('color_5')()],
+            customColors: nicepageThemeSettings && nicepageThemeSettings.colorScheme && nicepageThemeSettings.colorScheme.customColors
+        };
+
+        var win = wp.customize.previewer.targetWindow();
+
+        var colorSchemeName = ColorSchemes.createPaletteFromColorArray(colorsArray);
+        var colorSchemeObject = ColorSchemes.getColorSchemeByName(colorSchemeName);
+        var styleName = win.jQuery('style[color-style]').attr('color-style');
+        var colorStyleObject = ColorStyles.getColorStyleByName(styleName);
+        if (!colorSchemeObject.palettes) {
+            ColorLab.createPalettes(colorSchemeObject);
+        }
+        var colorSchemeCss = ColorLab.getCss(colorSchemeObject, colorStyleObject);
+
+        colorSchemeCss = colorSchemeCss.replace('id="color-scheme"', 'id="theme-customized-color-scheme"');
+        api('colors_css').set(colorSchemeCss);
+        api.previewer.send('update-color-scheme-css', colorSchemeCss);
+    }
+
+    var colorProps = ['color_1', 'color_2', 'color_3', 'color_4', 'color_5', 'color_background', 'color_white_contrast', 'color_shading_contrast'];
+
     _.each(colorProps, function (prop) {
         api(prop, function (setting) {
             setting.bind(updateColorsCSS);
