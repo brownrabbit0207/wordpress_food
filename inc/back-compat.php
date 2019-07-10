@@ -8,6 +8,17 @@
 /**
  * Prevent switching to theme on old versions of WordPress.
  *
+ * Switches to the default theme.
+ */
+function theme_compat_switch_theme() {
+    switch_theme(WP_DEFAULT_THEME, WP_DEFAULT_THEME);
+
+    unset($_GET['activated']);
+
+    add_action('admin_notices', 'theme_compat_upgrade_notice');
+}
+add_action('after_switch_theme', 'theme_compat_switch_theme');
+
 /**
  * Adds a message for unsuccessful theme switch.
  *
