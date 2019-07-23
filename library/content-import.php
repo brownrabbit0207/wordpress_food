@@ -8,17 +8,6 @@ class ThemeContentImport {
      *
      * @global TGM_Plugin_Activation $tgmpa
      */
-    public static function contentImportNoticeAction() {
-        global $tgmpa;
-        $import_content_can = has_action('nicepage_import_content');
-        $installation_required = !defined('APP_PLUGIN_VERSION');
-        $import_href = $installation_required
-            ? add_query_arg(array('np-import' => '1'), $tgmpa->get_tgmpa_url())
-            : '#';
-        ?>
-        <div id="content-import-notice" class="updated">
-            <p>
-                <?php echo __('Do you want to import Content?', 'website4829605'); ?>
                 &nbsp; &nbsp; &nbsp; &nbsp;
                 <a id="import-import-content" class="import-button button" href="<?php echo $import_href; ?>"><?php echo __('Import content', 'website4829605'); ?></a>
                 <a id="import-replace-content" class="<?php if (get_option('np_imported_content') === false) echo 'hidden'; ?> import-button button" href="<?php echo $import_href; ?>"><?php echo __('Replace previously imported content', 'website4829605'); ?></a>
