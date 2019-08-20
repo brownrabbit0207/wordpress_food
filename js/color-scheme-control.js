@@ -1,3 +1,4 @@
+/**
  * Add a listener to the Color Scheme control to update other color controls to new values/defaults.
  * Also trigger an update of the Color Scheme CSS when a color is changed.
  */
@@ -7,17 +8,6 @@
         var doOnce = function () {
             wp.customize.previewer.unbind('ready', doOnce);
             func();
-        };
-        wp.customize.previewer.bind('ready', doOnce);
-    }
-
-    // Generate the CSS for the current Color Scheme.
-    function updateColorsCSS() {
-        var colorsArray = {
-            bgColor: api('color_background')(),
-            bodyColors: [api('color_white_contrast')(), api('color_shading_contrast')()],
-            colors: [api('color_1')(), api('color_2')(), api('color_3')(), api('color_4')(), api('color_5')()],
-            customColors: nicepageThemeSettings && nicepageThemeSettings.colorScheme && nicepageThemeSettings.colorScheme.customColors
         };
 
         var win = wp.customize.previewer.targetWindow();
