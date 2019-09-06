@@ -18,16 +18,11 @@ if(!function_exists('theme_woocommerce_enabled')) {
 function theme_add_template_option($type, $name, $caption, $type_priority = 10) {
     global $theme_templates_options, $theme_template_type_priority;
     $theme_template_type_priority[$type] = $type_priority;
-    return $theme_template_type_priority[$b] - $theme_template_type_priority[$a];
+    $theme_templates_options[$type][$name] = esc_attr(urldecode($caption));
 }
-uksort($theme_templates_options, 'theme_compare_template_names');
 
-foreach($theme_templates_options as $template => $list) {
-    ksort($list);
-    $theme_options[] = array(
-        'id'      => 'theme_template_' . get_option('stylesheet') . '_' . sanitize_title_with_dashes($template),
-        'name'    => $template,
-        'type'    => 'select',
+function theme_add_template_query_option($type, $name, $caption) {
+    global $theme_template_query;
         'options' => $list
     );
 }
