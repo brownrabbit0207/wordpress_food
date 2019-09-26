@@ -8,6 +8,17 @@ $language = isset($_GET['lang']) ? $_GET['lang'] : '';
 
 add_action(
     'theme_content_styles',
+    function () use ($page404_custom_template) {
+        theme_single_content_styles($page404_custom_template);
+    }
+);
+
+function theme_single_body_class_filter($classes) {
+    $classes[] = 'u-body u-xl-mode';
+    return $classes;
+}
+add_filter('body_class', 'theme_single_body_class_filter');
+
 function theme_single_body_style_attribute() {
     return "";
 }
