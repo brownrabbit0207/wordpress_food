@@ -13,26 +13,16 @@ add_action(
     }
 );
 
+function theme_single_body_class_filter($classes) {
+    $classes[] = 'u-body u-xl-mode';
+    return $classes;
 }
-add_filter('add_back_to_top', 'theme_single_body_back_to_top');
+add_filter('body_class', 'theme_single_body_class_filter');
 
-
-function theme_single_get_local_fonts() {
-    return '';
+function theme_single_body_style_attribute() {
+    return "";
 }
-add_filter('get_local_fonts', 'theme_single_get_local_fonts');
-
-ob_start();
-get_header();
-$header = ob_get_clean();
-if (function_exists('renderHeader')) {
-    renderHeader($header, '', 'echo');
-} else {
-    echo $header;
-}
-
-theme_layout_before('page404', '', $page404_custom_template);
-$translations = '';
+add_filter('add_body_style_attribute', 'theme_single_body_style_attribute');
 if ($language) {
     if (file_exists(get_stylesheet_directory() . '/' . 'template-parts/'. $page404_custom_template . '/translations/' . $language .'/single-content' . '.php')) {
         $translations = '/translations/' . $language;
