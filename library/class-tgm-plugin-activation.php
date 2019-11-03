@@ -1,4 +1,3 @@
-<?php
 /**
  * Plugin installation and activation for WordPress themes.
  *
@@ -18,6 +17,27 @@
  * Plugin Name: TGM Plugin Activation
  * Plugin URI:
  * Description: Plugin installation and activation for WordPress themes.
+ * Version:     2.5.2
+ * Author:      Thomas Griffin, Gary Jones, Juliette Reinders Folmer
+ * Author URI:  http://tgmpluginactivation.com/
+ * Text Domain: tgmpa
+ * Domain Path: /languages/
+ * Copyright:   2011, Thomas Griffin
+ */
+
+/*
+	Copyright 2011 Thomas Griffin (thomasgriffinmedia.com)
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License, version 2, as
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
