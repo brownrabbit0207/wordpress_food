@@ -8,16 +8,11 @@ $language = isset($_GET['lang']) ? $_GET['lang'] : '';
 
 add_action(
     'theme_content_styles',
-function theme_single_body_style_attribute() {
-    return "";
-}
-add_filter('add_body_style_attribute', 'theme_single_body_style_attribute');
+    function () use ($page404_custom_template) {
+        theme_single_content_styles($page404_custom_template);
+    }
+);
 
-function theme_single_body_back_to_top() {
-    ob_start(); ?>
-    
-    <?php
-    return ob_get_clean();
 }
 add_filter('add_back_to_top', 'theme_single_body_back_to_top');
 
