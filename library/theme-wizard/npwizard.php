@@ -13,6 +13,22 @@ class Npwizard {
     protected $options_steps = array();
     protected $plugin_url = '';
     protected $tgmpa_instance;
+    protected $tgmpa_menu_slug = 'tgmpa-install-plugins';
+    protected $tgmpa_url = 'themes.php?page=tgmpa-install-plugins';
+
+    /**
+     * Constructor
+     *
+     * @param $options options
+     */
+    public function __construct($options) {
+        $this->set_options($options);
+        $this->init();
+    }
+
+    /**
+     * Set options
+     *
      * @param $options options
      */
     public function set_options($options) {
