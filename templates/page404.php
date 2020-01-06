@@ -3,12 +3,6 @@
 Template Name: The template for displaying 404 pages (not found)
 */
 global $page404_custom_template;
-$page404_custom_template = 'page404Template';
-$language = isset($_GET['lang']) ? $_GET['lang'] : '';
-
-add_action(
-    'theme_content_styles',
-    function () use ($page404_custom_template) {
         theme_single_content_styles($page404_custom_template);
     }
 );
@@ -23,6 +17,32 @@ function theme_single_body_style_attribute() {
     return "";
 }
 add_filter('add_body_style_attribute', 'theme_single_body_style_attribute');
+
+function theme_single_body_back_to_top() {
+    ob_start(); ?>
+    
+    <?php
+    return ob_get_clean();
+}
+add_filter('add_back_to_top', 'theme_single_body_back_to_top');
+
+
+function theme_single_get_local_fonts() {
+    return '';
+}
+add_filter('get_local_fonts', 'theme_single_get_local_fonts');
+
+ob_start();
+get_header();
+$header = ob_get_clean();
+if (function_exists('renderHeader')) {
+    renderHeader($header, '', 'echo');
+} else {
+    echo $header;
+}
+
+theme_layout_before('page404', '', $page404_custom_template);
+$translations = '';
 if ($language) {
     if (file_exists(get_stylesheet_directory() . '/' . 'template-parts/'. $page404_custom_template . '/translations/' . $language .'/single-content' . '.php')) {
         $translations = '/translations/' . $language;

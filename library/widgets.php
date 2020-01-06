@@ -3,12 +3,6 @@
 function theme_nosidebar_widget($props) {
     global $theme_nosidebar_widgets;
 
-    $type = _arr($props, 'type', 'text');
-    $data = $theme_nosidebar_widgets[$type];
-    $class = $data[0];
-    $args = _arr($data, 2, array());
-    foreach ($data[1] as $args_key => $source_key) {
-        if (is_string($source_key)) {
             $args[$args_key] = _arr($props, $source_key);
         } else if (is_array($source_key)) {
             $args[$args_key] = _arr($props, $source_key[0], $source_key[1]);
@@ -23,6 +17,32 @@ $theme_nosidebar_widgets = array(
         'WP_Widget_Text',
         array(
             'title' => 'title',
+            'text' => 'content',
+        ),
+        array(
+            'filter' => true,
+        )
+    ),
+    'calendar' => array(
+        'WP_Widget_Calendar',
+        array(
+            'title' => 'title',
+        )
+    ),
+    'searchWidget' => array(
+        'WP_Widget_Search',
+        array(
+            'title' => 'title',
+        )
+    ),
+    'meta' => array(
+        'WP_Widget_Meta',
+        array(
+            'title' => 'title',
+        )
+    ),
+    'pages' => array(
+        'WP_Widget_Pages',
         array(
             'title' => 'title',
             'exclude' => array('excludes', ''),
