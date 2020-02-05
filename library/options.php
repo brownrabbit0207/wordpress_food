@@ -8,16 +8,11 @@ $theme_selectable_templates = array();
 $theme_template_type_priority = array();
 $theme_template_query = array();
 
-}
-
-function theme_add_template_query_option($type, $name, $caption) {
-    global $theme_template_query;
-    $theme_template_query[$name] = esc_attr(urldecode($caption));
-}
-
-theme_include_lib('templates_options.php');
-
-$theme_options = array(
+if(!function_exists('theme_woocommerce_enabled')) {
+    function theme_woocommerce_enabled() {
+        global $woocommerce;
+        return $woocommerce != null;
+    }
     array(
         'name' => __('Templates', 'default'),
         'type' => 'heading'
