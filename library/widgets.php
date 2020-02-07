@@ -23,32 +23,6 @@ $theme_nosidebar_widgets = array(
         'WP_Widget_Text',
         array(
             'title' => 'title',
-            'text' => 'content',
-        ),
-        array(
-            'filter' => true,
-        )
-    ),
-    'calendar' => array(
-        'WP_Widget_Calendar',
-        array(
-            'title' => 'title',
-        )
-    ),
-    'searchWidget' => array(
-        'WP_Widget_Search',
-        array(
-            'title' => 'title',
-        )
-    ),
-    'meta' => array(
-        'WP_Widget_Meta',
-        array(
-            'title' => 'title',
-        )
-    ),
-    'pages' => array(
-        'WP_Widget_Pages',
         array(
             'title' => 'title',
             'exclude' => array('excludes', ''),
