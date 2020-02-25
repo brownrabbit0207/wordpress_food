@@ -3,16 +3,11 @@
 Template Name: The template for displaying 404 pages (not found)
 */
 global $page404_custom_template;
-        theme_single_content_styles($page404_custom_template);
-    }
-);
+$page404_custom_template = 'page404Template';
+$language = isset($_GET['lang']) ? $_GET['lang'] : '';
 
-function theme_single_body_class_filter($classes) {
-    $classes[] = 'u-body u-xl-mode';
-    return $classes;
-}
-add_filter('body_class', 'theme_single_body_class_filter');
-
+add_action(
+    'theme_content_styles',
 function theme_single_body_style_attribute() {
     return "";
 }
