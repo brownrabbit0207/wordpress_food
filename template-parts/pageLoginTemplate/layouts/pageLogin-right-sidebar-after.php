@@ -18,3 +18,6 @@ WIDGET_TEMPLATE
             <div class="u-block-content u-text" style="font-size: 0.875rem; line-height: 2;">
                 Block content. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.
             </div>
+        </div>
+    </div> <?php } ?></aside>
+        </div></div>
