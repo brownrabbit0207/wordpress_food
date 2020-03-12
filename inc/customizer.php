@@ -13,16 +13,11 @@ function theme_customize_register($wp_customize) {
     global $theme_default_options;
     $wp_customize->get_setting('blogname')->transport = 'postMessage';
     $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
-        'default' => 'default',
-        'sanitize_callback' => 'sanitize_text_field',
-        'transport' => 'postMessage',
-    ));
 
-    $wp_customize->add_control('color_scheme', array(
-        'label' => __('Color Scheme', 'website4829605'),
-        'section' => 'colors',
-        'type' => 'select',
-        'choices' => array(),
+    if (isset($wp_customize->selective_refresh)) {
+        $wp_customize->selective_refresh->add_partial('blogname', array(
+            'selector' => '.site-title a',
+            'container_inclusive' => false,
         'priority' => 1,
     ));
 
