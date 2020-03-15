@@ -1,4 +1,3 @@
-<?php
 defined('ABSPATH') or die;
 
 global $theme_options, $theme_templates_options, $theme_template_query, $theme_template_type_priority, $theme_default_options;
@@ -18,6 +17,27 @@ if(!function_exists('theme_woocommerce_enabled')) {
 function theme_add_template_option($type, $name, $caption, $type_priority = 10) {
     global $theme_templates_options, $theme_template_type_priority;
     $theme_template_type_priority[$type] = $type_priority;
+    $theme_templates_options[$type][$name] = esc_attr(urldecode($caption));
+}
+
+function theme_add_template_query_option($type, $name, $caption) {
+    global $theme_template_query;
+    $theme_template_query[$name] = esc_attr(urldecode($caption));
+}
+
+theme_include_lib('templates_options.php');
+
+$theme_options = array(
+    array(
+        'name' => __('Templates', 'default'),
+        'type' => 'heading'
+    )
+);
+
+function theme_compare_template_names($a, $b) {
+    global $theme_template_type_priority;
+    if ($theme_template_type_priority[$a] === $theme_template_type_priority[$b])
+        return strnatcasecmp($a, $b);
     return $theme_template_type_priority[$b] - $theme_template_type_priority[$a];
 }
 uksort($theme_templates_options, 'theme_compare_template_names');
