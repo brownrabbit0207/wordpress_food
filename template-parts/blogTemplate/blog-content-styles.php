@@ -1,4 +1,3 @@
-<!-- index styles -->
 
 <style>.u-section-1 .u-sheet-1 {
   min-height: 561px;
@@ -12,6 +11,22 @@
   grid-template-columns: repeat(3, calc(33.3333% - 14.6667px));
   min-height: 441px;
   grid-gap: 22px;
+}
+.u-section-1 .u-repeater-item-1 {
+  background-image: none;
+}
+.u-section-1 .u-container-layout-1 {
+  padding: 30px 20px;
+}
+.u-section-1 .u-text-1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.u-section-1 .u-image-1 {
+  height: 222px;
+  margin-top: 17px;
+  margin-bottom: 0;
+  visibility: hidden;
 }
 .u-section-1 .u-text-2 {
   margin-top: 20px;
