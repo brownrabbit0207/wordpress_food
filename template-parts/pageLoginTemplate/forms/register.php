@@ -13,3 +13,12 @@
           <input type="submit" value="submit" class="u-form-control-hidden">
         </div>
         <input type="hidden" value="" name="recaptchaResponse">
+      </form>
+<?php
+$pathToLinkTemplates = get_template_directory() . '/template-parts/' . $pageLogin_custom_template . '/links/';
+if (file_exists($pathToLinkTemplates . 'login.php')) {
+	include_once $pathToLinkTemplates . 'login.php';
+}
+if (file_exists($pathToLinkTemplates . 'register.php')) {
+	include_once $pathToLinkTemplates . 'lostpassword.php';
+}
