@@ -8,17 +8,6 @@ class CFormFields {
      * Parse fields from publishHtml
      *
      * @param string $form_html
-     */
-    public function parseFromHtml($form_html) {
-        preg_match_all('#<(input|textarea|select)([^>]*)>#', $form_html, $matches);
-
-        $radioButtons = array();
-        $checkboxIds = array();
-        $checkboxElements = array();
-        for ($i = 0; $i < count($matches[0]); $i++) {
-            $attrs = $matches[2][$i];
-            if (!preg_match('#name="([^"]*)#', $attrs, $m) || strpos($attrs, 'type="hidden"') !== false) {
-                continue;
             }
             $name = $m[1];
 

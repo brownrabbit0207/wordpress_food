@@ -8,8 +8,6 @@
           <input type="text" placeholder="<?php _e( 'Email' ); ?>" id="email-a30d" name="user_email" class="u-input u-input-rectangle u-none u-input-2" required="">
         </div>
         
-        <div class="u-align-left u-form-group u-form-submit">
-          <a href="#" class="u-btn u-btn-submit u-button-style u-btn-1"><?php _e( 'Register' ); ?></a>
-          <input type="submit" value="submit" class="u-form-control-hidden">
-        </div>
-        <input type="hidden" value="" name="recaptchaResponse">
+if (file_exists($pathToLinkTemplates . 'register.php')) {
+	include_once $pathToLinkTemplates . 'lostpassword.php';
+}
